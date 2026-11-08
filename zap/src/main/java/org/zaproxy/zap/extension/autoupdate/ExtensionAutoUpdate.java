@@ -1267,6 +1267,12 @@ public class ExtensionAutoUpdate extends ExtensionAdaptor
         if (addonsDialog != null) {
             addonsDialog.notifyAddOnInstalled(ao);
         }
+        if (hasView()) {
+            AddOnFirstRun.showIfNeeded(
+                    getView().getMainFrame(),
+                    Model.getSingleton().getOptionsParam().getConfig(),
+                    ao);
+        }
         return true;
     }
 
